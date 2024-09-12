@@ -1,9 +1,6 @@
 {
     "folders": [
         {
-            "path": ":gh repo clone LevinJ:Supply-demand-forecasting"
-        },
-        {
             "path": ".."
         }
     ]
