@@ -61,7 +61,30 @@ class VisualizeTestData(visualizeData):
 #         self.disp_gap_bydate()
         return
     
+class TestGenerateResultCsvWithNonNumericValues(unittest.TestCase):
+    def setUp(self):
+        self.generator = GenerateResultCsv()
 
+    def test_init_with_non_numeric_values(self):
+        # Create a file with non-numeric values
+        with open('non_numeric_values.csv', 'w') as file:
+            file.write('start_district_id,time_slotid,gap\n')
+            file.write('1,46,abc\n')
+            file.write('2,58,def\n')
+            file.write('3,70,ghi\n')
+
+        # Call the constructor with the non-numeric values file
+        self.generator.__init__()
+
+        # Check if the object is initialized correctly
+        self.assertIsNotNone(self.generator)
+
+        # Clean up the created file
+        file.close()
+        os.remove('non_numeric_values.csv')
+
+if __name__ == '__main__':
+    unittest.main()
 
 if __name__ == "__main__":   
     obj= VisualizeTestData()
