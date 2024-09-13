@@ -130,7 +130,7 @@ class VisualizeTrainData(visualizeData):
         size = len(dt_list)
         col_len = 4
         row_len = 7
-#         col_len = row_len = int(math.ceil(math.sqrt(size)))
+#         col_len = row_lean = int(math.ceil(math.sqrt(size)))
 #         count = 1
         _, axarr = plt.subplots(row_len, col_len, sharex=True, sharey=True)
         for row in range(row_len):
@@ -222,4 +222,6 @@ class VisualizeTrainData(visualizeData):
 
 if __name__ == "__main__":   
     obj= VisualizeTrainData()
-    obj.run()
+        """_summary_
+        """    
+        obj.run()
