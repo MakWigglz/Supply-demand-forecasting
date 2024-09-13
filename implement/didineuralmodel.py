@@ -165,3 +165,114 @@ class DididNeuralNetowrk(TFModel, PrepareData, EarlyStopMonitor):
 if __name__ == "__main__":   
     obj= DididNeuralNetowrk()
     obj.run()
+class DididNeuralNetowrk(TFModel, PrepareData, EarlyStopMonitor):
+    """
+    Didi nerual network model implemented by using TensorFlow.
+    
+    Attributes:
+    num_steps (int): The number of training steps.
+    batch_size (int): The size of each batch for training.
+    early_stopping_rounds (int): The number of rounds to wait before stopping training if the validation loss does not improve.
+    summaries_dir (str): The directory to save TensorFlow summaries.
+    dropout (float): The dropout probability for training.
+    usedFeatures (list): The list of feature indices to be used for training.
+    train_validation_foldid (int): The fold ID for training and validation data.
+    
+    Methods:
+    __init__(): Initializes the attributes of the class.
+    add_visualize_node(): Adds TensorFlow operations for visualizing the training process.
+    get_input(): Loads the training, validation, and test data into TensorFlow placeholders.
+    add_inference_node(): Adds TensorFlow operations for making predictions using the trained model.
+    add_loss_node(): Adds TensorFlow operations for calculating the loss using the predicted values and the true values.
+    __add_mse_loss(): Adds TensorFlow operations for calculating the Mean Squared Error (MSE) loss.
+    __add_mape_loss(): Adds TensorFlow operations for calculating the Mean Absolute Percentage Error (MAPE) loss.
+    add_optimizer_node(): Adds TensorFlow operations for optimizing the model using the calculated loss.
+    add_accuracy_node(): Adds TensorFlow operations for calculating the accuracy of the model using the predicted values and the true values.
+    add_evalmetrics_node(): Adds TensorFlow operations for evaluating the model using the calculated accuracy.
+    feed_dict(feed_type): Makes a TensorFlow feed_dict: maps data onto TensorFlow placeholders.
+    run_graph(): Runs the TensorFlow graph for training the neural network model.
+    """
+    def __init__(self):
+        TFModel.__init__(self)
+        PrepareData.__init__(self)
+        EarlyStopMonitor.__init__(self)
+        self.num_steps = 3000
+        self.batch_size = 12.8
+        self.early_stopping_rounds = None
+        self.summaries_dir = './logs/didi'
+        self.dropout = 0.9
+        self.usedFeatures = [101,102,103,104,105,     #106,107, 
+                             201, 204, #205,206, 203,
+                             301,
+                             401,402,
+                             501,502,503,      #504,505,506,507,
+                            601,602,603,604,605,606,
+                             8801,8802
+                             ]
+        self.train_validation_foldid = -2 #0.415
+#         self.train_validation_foldid = -1 #0.425
+#         self.train_validation_foldid = -3 #0.430
+        logging.getLogger().addHandler(logging.FileHandler('logs/didnerual.log', mode='w'))
+        return
+    # ... (other methods with appropriate comments)
+    
+if __name__ =="__main__":
+    obj= DidiNeuralNetwork(
+        obj.run_graph()
+    )    # ... (other imports)
+    
+    class DididNeuralNetowrk(TFModel, PrepareData, EarlyStopMonitor):
+        """
+        Didi nerual network model implemented by using TensorFlow.
+        
+        Attributes:
+        num_steps (int): The number of training steps.
+        batch_size (int): The size of each batch for training.
+        early_stopping_rounds (int): The number of rounds to wait before stopping training if the validation loss does not improve.
+        summaries_dir (str): The directory to save TensorFlow summaries.
+        dropout (float): The dropout probability for training.
+        usedFeatures (list): The list of feature indices to be used for training.
+        train_validation_foldid (int): The fold ID for training and validation data.
+        
+        Methods:
+        __init__(): Initializes the attributes of the class.
+        add_visualize_node(): Adds TensorFlow operations for visualizing the training process.
+        get_input(): Loads the training, validation, and test data into TensorFlow placeholders.
+        add_inference_node(): Adds TensorFlow operations for making predictions using the trained model.
+        add_loss_node(): Adds TensorFlow operations for calculating the loss using the predicted values and the true values.
+        __add_mse_loss(): Adds TensorFlow operations for calculating the Mean Squared Error (MSE) loss.
+        __add_mape_loss(): Adds TensorFlow operations for calculating the Mean Absolute Percentage Error (MAPE) loss.
+        add_optimizer_node(): Adds TensorFlow operations for optimizing the model using the calculated loss.
+        add_accuracy_node(): Adds TensorFlow operations for calculating the accuracy of the model using the predicted values and the true values.
+        add_evalmetrics_node(): Adds TensorFlow operations for evaluating the model using the calculated accuracy.
+        feed_dict(feed_type): Makes a TensorFlow feed_dict: maps data onto TensorFlow placeholders.
+        run_graph(): Runs the TensorFlow graph for training the neural network model.
+        """
+        def __init__(self):
+            TFModel.__init__(self)
+            PrepareData.__init__(self)
+            EarlyStopMonitor.__init__(self)
+            self.num_steps = 3000
+            self.batch_size = 12.8
+            self.early_stopping_rounds = None
+            self.summaries_dir = './logs/didi'
+            self.dropout = 0.9
+            self.usedFeatures = [101,102,103,104,105,     #106,107, 
+                                 201, 204, #205,206, 203,
+                                 301,
+                                 401,402,
+                                 501,502,503,      #504,505,506,507,
+                                601,602,603,604,605,606,
+                                 8801,8802
+                                 ]
+            self.train_validation_foldid = -2 #0.415
+    #         self.train_validation_foldid = -1 #0.425
+    #         self.train_validation_foldid = -3 #0.430
+            logging.getLogger().addHandler(logging.FileHandler('logs/didnerual.log', mode='w'))
+            return
+        # ... (other methods with appropriate comments)
+        
+    if __name__ == "__main__":   
+        obj= DididNeuralNetwork(
+            obj.run_graph()
+        )
