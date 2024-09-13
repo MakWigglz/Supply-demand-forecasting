@@ -1,13 +1,7 @@
 {
     "folders": [
         {
-            "path": ".."
-        },
-        {
             "path": "."
         }
-    ],
-    "settings": {
-        "jdk.advanced.disable.nbjavac": false
-    }
+    ]
 }
